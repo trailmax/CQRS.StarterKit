@@ -73,7 +73,13 @@
     <Compile Include="Queries\ICacheProvider.cs" />
     <Compile Include="Queries\IQuery.cs" />
     <Compile Include="Queries\IQueryHandler.cs" />
+    <Compile Include="Queries\TimedQueryDecorator.cs" />
     <Compile Include="Samples\BasicCommand.cs" />
+    <Compile Include="Samples\BasicQuery.cs" />
+    <Compile Include="Samples\CachedQuery.cs" />
+    <Compile Include="Samples\Database.cs" />
+    <Compile Include="Samples\TransactedCommand.cs" />
+    <Compile Include="Samples\ValidatedCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

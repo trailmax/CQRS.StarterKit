@@ -68,14 +68,16 @@ namespace StarterKit.Logging
         {
             var finalMessage = String.Format("{0} {1}: {2}; Exception: {3}", loggerName, level.ToUpper(), message, exception);
 
-            System.Diagnostics.Trace.WriteLine(finalMessage);
+            //System.Diagnostics.Trace.WriteLine(finalMessage);
+            Console.WriteLine(finalMessage);
         }
 
         private void WriteFormattedMessage(string level, string message, object[] args)
         {
             var template = String.Format("{0} {1}: {2}", loggerName, level.ToUpper(), message);
             var finalMessage = String.Format(template, args);
-            System.Diagnostics.Trace.WriteLine(finalMessage);
+            //System.Diagnostics.Trace.WriteLine(finalMessage);
+            Console.WriteLine(finalMessage);
         }
     }
 }

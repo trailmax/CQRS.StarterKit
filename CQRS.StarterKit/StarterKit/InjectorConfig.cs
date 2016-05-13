@@ -5,6 +5,7 @@ using SimpleInjector;
 using StarterKit.Commands;
 using StarterKit.Logging;
 using StarterKit.Queries;
+using StarterKit.Samples;
 
 namespace StarterKit
 {
@@ -15,8 +16,8 @@ namespace StarterKit
             var container = new Container();
 
             container.Register(typeof(IQueryHandler<,>), typeof(Program).Assembly);
-
             container.RegisterDecorator(typeof(IQueryHandler<,>), typeof(CachedQueryHandlerDecorator<,>));
+            container.RegisterDecorator(typeof(IQueryHandler<,>), typeof(TimedQueryDecorator<,>));
 
 
             container.Register(typeof(ICommandHandler<>), typeof(Program).Assembly);
@@ -31,8 +32,9 @@ namespace StarterKit
 
 
             container.Register<IMediator, Mediator>();
-            container.Register<ICacheProvider, DictionaryCacheProvider>();
+            container.RegisterSingleton<ICacheProvider, DictionaryCacheProvider>();
             container.Register<ILoggingService, TraceLogger>();
+            container.RegisterSingleton<Database>();
 
             RegisterTypes(container, nameEndsWith: "Repository");
             RegisterTypes(container, nameEndsWith: "Service");
